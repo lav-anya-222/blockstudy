@@ -1,5 +1,8 @@
 # StudySphere - AI-Powered Interactive Learning Platform
 
+[![Vercel Deploy](https://deploy-badge.vercel.app/vercel/blockstudy)](https://blockstudy-crhm6xqbn-lavanya-as-projects.vercel.app)
+**Live Demo:** [https://blockstudy-crhm6xqbn-lavanya-as-projects.vercel.app](https://blockstudy-crhm6xqbn-lavanya-as-projects.vercel.app)
+
 A visually stunning, AI-enhanced learning platform that makes studying engaging through gamification, real-time collaboration, and personalized learning paths.
 
 ## 🎯 Project Overview
