@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7
+    container_name: studysphere-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: studysphere
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - studysphere-network
+
+  # Backend Server
+  backend:
+    build:
+      context: ./SERVER
+      dockerfile: Dockerfile
+    container_name: studysphere-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: development
+      PORT: 5000
+      MONGODB_URI: mongodb://mongodb:27017/studysphere
+      JWT_SECRET: your-secret-key-change-in-production
+      CLIENT_URL: http://localhost:3000
+    depends_on:
+      - mongodb
+    volumes:
+      - ./SERVER:/app
+      - /app/node_modules
+    networks:
+      - studysphere-network
+
+  # Frontend (Next.js)
+  frontend:
+    build:
+      context: ./CLIENT
+      dockerfile: Dockerfile
+    container_name: studysphere-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:5000/api
+      NEXT_PUBLIC_SOCKET_URL: http://localhost:5000
+    depends_on:
+      - backend
+    volumes:
+      - ./CLIENT:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - studysphere-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  studysphere-network:
+    driver: bridge
+

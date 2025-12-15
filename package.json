@@ -1,0 +1,35 @@
+{
+  "name": "studysphere",
+  "version": "1.0.0",
+  "description": "StudySphere - AI-Powered Interactive Learning Platform",
+  "private": true,
+  "workspaces": [
+    "CLIENT",
+    "SERVER"
+  ],
+  "scripts": {
+    "dev:client": "cd CLIENT && npm run dev",
+    "dev:server": "cd SERVER && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build:client": "cd CLIENT && npm run build",
+    "build:server": "cd SERVER && npm install",
+    "build": "npm run build:server && npm run build:client",
+    "start:client": "cd CLIENT && npm start",
+    "start:server": "cd SERVER && npm start",
+    "install:all": "npm install && cd CLIENT && npm install && cd ../SERVER && npm install"
+  },
+  "keywords": [
+    "education",
+    "learning",
+    "study",
+    "ai",
+    "nextjs",
+    "react"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+

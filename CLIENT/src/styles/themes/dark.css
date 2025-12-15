@@ -1,0 +1,23 @@
+/**
+ * Dark theme styles
+ */
+
+:root[data-theme="dark"] {
+  --primary-blue: #3b82f6;
+  --primary-purple: #8b5cf6;
+  --accent-teal: #2dd4bf;
+  --success-green: #10b981;
+  --warning-orange: #f59e0b;
+  --error-red: #ef4444;
+  
+  --background: #0a0a0a;
+  --surface: #1a1a1a;
+  --text: #ffffff;
+  --text-secondary: #9ca3af;
+  --border: #374151;
+  
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-accent: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+}
+
